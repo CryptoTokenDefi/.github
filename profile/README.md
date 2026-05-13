@@ -49,3 +49,7 @@ Precedencia oficial:
 - [Mobile](https://github.com/CryptoTokenDefi/Mobile)
 - [Integrations](https://github.com/CryptoTokenDefi/Integrations)
 - [Docs](https://github.com/CryptoTokenDefi/Docs)
+
+## Sprint 03 - Seguranca Operacional
+- Hardening local de secrets aplicado via CI scan nos repositórios tecnicos.
+- Ativacao de push protection/secret scanning organizacional depende de permissao de administrador da organizacao.
