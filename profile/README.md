@@ -1,55 +1,117 @@
 ﻿# CryptoToken DeFi
 
-Atualizado em: 2026-04-24
+> Plataforma financeira digital que une investimentos em criptomoedas, carteira digital, compliance regulatório e atendimento com IA — de forma segura e regulada.
 
-Plataforma organizada em 6 repositorios com responsabilidade separada para produto, operacao, integracoes e governanca documental.
+[![Organização](https://img.shields.io/badge/organização-CryptoTokenDefi-8b5cf6?style=flat-square)](https://github.com/CryptoTokenDefi)
+[![Stack](https://img.shields.io/badge/stack-.NET%208%20%7C%20Blazor%20%7C%20MAUI%20%7C%20MongoDB-512bd4?style=flat-square)](https://dotnet.microsoft.com/)
+[![Status](https://img.shields.io/badge/status-Beta%20Web%20Controlada-22c55e?style=flat-square)](#roadmap)
+[![Compliance](https://img.shields.io/badge/compliance-LGPD%20%7C%20KYC%2FAML-0ea5e9?style=flat-square)](#segurança-e-compliance)
 
-## Taxonomia Canonica
+---
 
-- `real`: implementado e evidenciado no codigo versionado.
-- `parcial`: existe no codigo, mas depende de consolidacao para operacao plena.
-- `planejado`: backlog futuro sem evidencia de entrega no codigo atual.
-- `divergente`: documento ou narrativa que conflita com o estado real atual.
-- `legado`: material mantido para referencia historica, fora da trilha oficial.
+## 🚀 Visão de Produto
 
-## Repositorios Oficiais
+A **CryptoToken DeFi** é uma plataforma financeira digital construída para democratizar o acesso a investimentos em ativos digitais. Reúne, em um único ecossistema, o ciclo completo do investidor: do onboarding e verificação de identidade (KYC) ao pagamento, alocação, acompanhamento de carteira e suporte assistido por inteligência artificial.
 
-| Repositorio | Missao | Estado Atual |
+**Missão:** tornar o investimento digital acessível, seguro e regulado — com suporte inteligente em cada etapa da jornada do usuário.
+
+**Diferenciais:**
+- 🔐 **Segurança por design** — autenticação JWT, hashing BCrypt, rate limiting e sanitização de dados sensíveis em todos os logs.
+- ⚖️ **Compliance nativo** — LGPD, KYC/AML e trilha de auditoria desde a fundação do projeto.
+- 🤖 **Atendimento com IA** — chatbot com RAG (base de conhecimento) e handoff humano com protocolo de ticket.
+- 🧩 **Arquitetura modular** — API central em .NET, web em Blazor e app em .NET MAUI, com contratos compartilhados.
+- 🪙 **Web3 integrado** — carteira digital, ledger contábil e operações em blockchain EVM (via Nethereum).
+
+---
+
+## 🧭 Pilares da Plataforma
+
+| Pilar | O que entrega | Estado |
 |---|---|---|
-| `Backend` | API principal, regras de negocio, persistencia, testes e webhooks | `real` no core API, `parcial` em frentes web3 avancadas |
-| `Frontend` | Experiencia web oficial em Blazor e trilha estatica legada ativa | `real` no Blazor, `legado` ativo no `web-static` |
-| `Infra` | CI/CD, docker, runtime, scripts operacionais e seguranca de stack | `parcial` |
-| `Docs` | Camada canonica de documentacao, auditoria, contratos e governanca | `real` |
-| `Mobile` | Baseline .NET MAUI, contratos mobile/backend e consolidacao de app | `parcial` |
-| `Integrations` | Contratos compartilhados, Postman, staking e trilha web3 modular | `parcial` |
+| **Onboarding & Membership** | Cadastro Web2/Web3, planos de adesão e checkout de pagamento (Stripe) | `real` |
+| **KYC & Compliance** | Verificação de identidade, aprovação/rejeição e bloqueio de dados sensíveis | `real` (sandbox parcial) |
+| **Investimento & Rendimento** | Planos institucionais, simulação, alocação e acompanhamento de carteira | `real` |
+| **Carteira & Ledger** | Depósitos/saques em cripto, registro contábil imutável e conciliação | `real` |
+| **Suporte Inteligente** | Chatbot RAG, FAQ, status seguro e handoff para humano com ticket | `real` |
+| **Backoffice Operacional** | Gestão de usuários, KYC, transações, relatórios e auditoria LGPD | `real` |
+| **Mobile** | App .NET MAUI consumindo contratos oficiais do backend | `parcial` |
+| **Web3 Avançado** | Staking e contratos Solidity modulares | `parcial` |
 
-## Estado Real Consolidado (codigo + docs canonicas)
+---
 
-- Backend: 14 controllers e 108 rotas HTTP mapeadas no codigo.
-- Frontend Blazor: 27 paginas e 29 rotas ativas.
-- Frontend `web-static`: 44 paginas HTML mantidas como legado ativo (nao-oficial para runtime principal).
-- Mobile: 9 controllers, 22 viewmodels, 26 views XAML.
-- Infra: 11 scripts operacionais e 1 workflow versionado.
-- Integrations: 7 contratos markdown, 1 OpenAPI, 1 Postman, 1 contrato Solidity.
+## 🛠️ Stack Tecnológica
 
-## Fonte de Verdade
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Camada de Experiência                                        │
+│  • Web oficial: Blazor Server (.NET 8, InteractiveServer)     │
+│  • Mobile: .NET MAUI 9 (Android + Windows)                    │
+│  • Espelho estático legado (web-static) para transição        │
+├─────────────────────────────────────────────────────────────┤
+│  Camada de Serviço (Backend .NET 8)                           │
+│  • ASP.NET Core Web API + MongoDB (MongoDbGenericRepository)  │
+│  • Nethereum para operações Web3 / EVM                        │
+│  • Ollama (LLM local) para RAG do chatbot                     │
+│  • Stripe para pagamentos (REST + Webhooks idempotentes)      │
+├─────────────────────────────────────────────────────────────┤
+│  Infraestrutura & Governança                                  │
+│  • Docker / Compose, NGINX, CI/CD (GitHub Actions)            │
+│  • Docs canônicas, auditoria e contratos compartilhados       │
+└─────────────────────────────────────────────────────────────┘
+```
 
-Precedencia oficial:
+**Principais tecnologias:** `.NET 8` · `Blazor Server` · `.NET MAUI 9` · `MongoDB` · `Nethereum` · `Stripe` · `Ollama` · `Docker` · `GitHub Actions`.
 
-1. codigo e estrutura real do repositorio correspondente
-2. `README.md` e `ROADMAP.md` do repositorio correspondente
-3. documentacao canonica no repositorio `Docs`
-4. historico/auditorias como memoria de apoio
+---
 
-## Navegacao Rapida
+## 📦 Repositórios da Organização
 
-- [Backend](https://github.com/CryptoTokenDefi/Backend)
-- [Frontend](https://github.com/CryptoTokenDefi/Frontend)
-- [Infra](https://github.com/CryptoTokenDefi/Infra)
-- [Mobile](https://github.com/CryptoTokenDefi/Mobile)
-- [Integrations](https://github.com/CryptoTokenDefi/Integrations)
-- [Docs](https://github.com/CryptoTokenDefi/Docs)
+| Repositório | Missão | Acesso |
+|---|---|---|
+| [Backend](https://github.com/CryptoTokenDefi/Backend) | API principal, regras de negócio, persistência, webhooks e testes | Privado |
+| [Frontend](https://github.com/CryptoTokenDefi/Frontend) | Experiência web oficial (Blazor) e trilha estática legada | Privado |
+| [Mobile](https://github.com/CryptoTokenDefi/Mobile) | App oficial em consolidação (.NET MAUI) | Privado |
+| [Infra](https://github.com/CryptoTokenDefi/Infra) | CI/CD, Docker, runtime, scripts e segurança de stack | Privado |
+| [Integrations](https://github.com/CryptoTokenDefi/Integrations) | Contratos compartilhados, Postman, staking e trilha web3 | Privado |
+| [Docs](https://github.com/CryptoTokenDefi/Docs) | Documentação canônica, auditoria e governança | Privado |
+| [.github](https://github.com/CryptoTokenDefi/.github) | Configurações globais, templates e perfil da organização | Público |
 
-## Sprint 03 - Seguranca Operacional
-- Hardening local de secrets aplicado via CI scan nos repositórios tecnicos.
-- Ativacao de push protection/secret scanning organizacional depende de permissao de administrador da organizacao.
+---
+
+## 🔒 Segurança e Compliance
+
+A plataforma foi desenhada com conformidade regulatória como requisito não-funcional:
+
+- **LGPD** — consentimento explícito, exportação e exclusão de dados do titular, com trilha em `DataSubjectDeletionLogs` e `UserConsents`.
+- **KYC / AML** — verificação obrigatória antes de operações financeiras; dados sensíveis nunca expostos em APIs públicas.
+- **Segurança financeira** — rate limiting em endpoints críticos, idempotência em webhooks de pagamento, BCrypt para senhas e JWT (15 min + refresh de 30 dias).
+- **Observabilidade** — `traceId`/`correlationId` em fluxos críticos e redação de PII em logs e tickets.
+
+> ⚠️ **Aviso:** a CryptoToken DeFi não promete rendimento garantido. Rentabilidades dependem de mercado e estão sujeitas a risco. Este perfil é institucional e não constitui recomendação de investimento.
+
+---
+
+## 🗺️ Roadmap
+
+| Fase | Foco | Status |
+|---|---|---|
+| **Beta Web Controlada** | Backoffice operacional, UX de erro, runbooks e E2E | 🟡 Em andamento |
+| **P0-04 · E2E + Gate 3** | Testes ponta a ponta com dados reais (sem mock) | ⏳ Pendente |
+| **Gates 4/5 · Go/No-Go** | Homologação de segurança e decisão de lançamento | ⏳ Pendente |
+| **Mobile Consolidado** | App MAUI consumindo contratos oficiais | 📋 Planejado |
+| **Web3 Avançado** | Staking e contratos Solidity modulares | 📋 Planejado |
+
+---
+
+## 🤝 Como Engajar
+
+- 🌐 Organização: [github.com/CryptoTokenDefi](https://github.com/CryptoTokenDefi)
+- 📚 Documentação canônica: [Docs](https://github.com/CryptoTokenDefi/Docs)
+- 🐞 Issues e contribuição: repositórios específicos (Frontend, Backend, etc.)
+- 🔐 Repositórios técnicos são privados; este perfil é a porta de entrada pública.
+
+---
+
+<p align="center">
+  <sub>CryptoToken DeFi — investimentos digitais seguros, regulados e com suporte inteligente.</sub>
+</p>
